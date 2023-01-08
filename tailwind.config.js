@@ -28,6 +28,8 @@ module.exports = {
           error: "#893131",
         },
       },
+      backgroundImage: {
+      }
     },
   },
   corePlugins: {

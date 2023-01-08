@@ -1,4 +1,8 @@
 import Head from "next/head";
+import Image from "next/image";
+import Link from "next/link";
+
+import logo from "../assets/logo-h-md.svg";
 
 export default function Home() {
   return (
@@ -9,9 +13,35 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-screen bg-white w-11/12 mx-auto max-w-7xl">
-        <div className="">
-          <span className="text-blue-600 font-bold">Gerenciando sua clínica</span>
+      <div className="mx-auto min-h-screen w-11/12 max-w-7xl bg-white">
+        <div className="py-10 px-4">
+          <div className="h-8 max-w-xs">
+            <Image src={logo} alt=""></Image>
+          </div>
+          <span className="block font-bold text-blue-700">
+            Gerenciando sua clínica
+          </span>
+          <div className="mx-auto max-w-md">
+            <strong className="mt-8 block font-normal">
+              Escolha qual sessão deseja iniciar:{" "}
+            </strong>
+            <div className="mt-4 flex flex-col gap-4">
+              {[
+                { id: "1", name: "Médicos(as)", img: "/assets/doctor.svg" },
+                { id: "2", name: "Pacientes", img: "/assets/person.svg" },
+                { id: "3", name: "Consultas", img: "/assets/calendar.svg" },
+              ].map(({ id, name, img }) => (
+                <Link
+                  href="#"
+                  className="flex w-full flex-col items-center gap-2 rounded-md bg-blue-700 p-4"
+                  key={id}
+                >
+                  <Image src={img} alt="" width={64} height={64}></Image>
+                  <strong className="block text-white">{name}</strong>
+                </Link>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </>
