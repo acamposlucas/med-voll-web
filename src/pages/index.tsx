@@ -9,8 +9,10 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="min-h-screen bg-zinc-900 text-zinc-300">
-        <h1 className="text-3xl">Hello World</h1>
+      <div className="min-h-screen bg-white w-11/12 mx-auto max-w-7xl">
+        <div className="">
+          <span className="text-blue-600 font-bold">Gerenciando sua clínica</span>
+        </div>
       </div>
     </>
   );
