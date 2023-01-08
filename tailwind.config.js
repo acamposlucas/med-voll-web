@@ -28,7 +28,24 @@ module.exports = {
           error: "#893131",
         },
       },
-      backgroundImage: {
+      keyframes: {
+        fadeOut: {
+          "0%": {
+            opacity: "1"
+          },
+          "50%": {
+            opacity: "0.5"
+          },
+          "75%": {
+            opacity: "0.2"
+          },
+          "100%": {
+            opacity: "0"
+          }
+        }
+      },
+      animation: {
+        fadeOut: "fadeOut 1000ms ease-in"
       }
     },
   },
