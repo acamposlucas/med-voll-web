@@ -28,6 +28,8 @@ export default function Home() {
             alt=""
             width={320}
             height={512}
+            priority
+            className="w-80 h-96"
           ></Image>
         </div>
       ) : (
@@ -54,7 +56,7 @@ export default function Home() {
                     className="flex w-full flex-col items-center gap-2 rounded-md bg-blue-700 p-4"
                     key={id}
                   >
-                    <Image src={img} alt="" width={64} height={64}></Image>
+                    <Image src={img} alt="" width={64} height={64} className="w-auto h-auto"></Image>
                     <strong className="block text-white">{name}</strong>
                   </Link>
                 ))}
