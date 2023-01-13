@@ -4,7 +4,15 @@ import { INewDoctorForm } from "../../interfaces/INewDoctorForm";
 
 export default function CadastroMedico() {
   const { register, handleSubmit } = useForm<INewDoctorForm>();
-  const onSubmit: SubmitHandler<INewDoctorForm> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<INewDoctorForm> = (data) => {
+    fetch("http://localhost:8080/medicos", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })
+  };
 
   // TODO: Validação campo email!
   return (
@@ -178,23 +186,43 @@ export default function CadastroMedico() {
                     </label>
                   </div>
                 </div>
-                <div className="relative min-w-fit flex-1">
-                  <input
-                    {...register("endereco.cidade", {
-                      required: true,
-                      maxLength: 255,
-                    })}
-                    type="text"
-                    id="cidade"
-                    className="peer block w-full appearance-none rounded-md border-2 border-neutral-400 py-[18px] px-4 leading-8 text-neutral-900 text-sm focus:border-blue-700 focus:outline-none focus:ring-0"
-                    placeholder=" "
-                  />
-                  <label
-                    htmlFor="cidade"
-                    className="absolute top-4 left-4 z-10 origin-[0] -translate-y-4 scale-75 transform leading-8 text-blue-700 duration-300 text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
-                  >
-                    Cidade
-                  </label>
+                <div className="flex flex-wrap gap-2">
+                  <div className="relative min-w-fit flex-1">
+                    <input
+                      {...register("endereco.cidade", {
+                        required: true,
+                        maxLength: 255,
+                      })}
+                      type="text"
+                      id="cidade"
+                      className="peer block w-full appearance-none rounded-md border-2 border-neutral-400 py-[18px] px-4 leading-8 text-neutral-900 text-sm focus:border-blue-700 focus:outline-none focus:ring-0"
+                      placeholder=" "
+                    />
+                    <label
+                      htmlFor="cidade"
+                      className="absolute top-4 left-4 z-10 origin-[0] -translate-y-4 scale-75 transform leading-8 text-blue-700 duration-300 text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
+                    >
+                      Cidade
+                    </label>
+                  </div>
+                  <div className="relative min-w-fit flex-1">
+                    <input
+                      {...register("endereco.bairro", {
+                        required: true,
+                        maxLength: 255,
+                      })}
+                      type="text"
+                      id="bairro"
+                      className="peer block w-full appearance-none rounded-md border-2 border-neutral-400 py-[18px] px-4 leading-8 text-neutral-900 text-sm focus:border-blue-700 focus:outline-none focus:ring-0"
+                      placeholder=" "
+                    />
+                    <label
+                      htmlFor="bairro"
+                      className="absolute top-4 left-4 z-10 origin-[0] -translate-y-4 scale-75 transform leading-8 text-blue-700 duration-300 text-sm peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:-translate-y-4 peer-focus:scale-75"
+                    >
+                      Bairro
+                    </label>
+                  </div>
                 </div>
                 <div className="flex gap-2">
                   <div className="min-w-[6rem]">
